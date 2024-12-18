@@ -21,7 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
 
       <Separator/>
 
-      <div>
+      <div className="mt-4">
         <Search />
       </div>
       <ul>
