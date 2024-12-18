@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Sidebar from '@/components/Sidebar';
+// import Sidebar from '@/components/Sidebar';
 
 export default function Admin() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function Admin() {
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-1">
       {/* Placeholder content */}
       <div className="flex-1 p-6">
         <header className="flex justify-between items-center mb-6">

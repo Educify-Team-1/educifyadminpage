@@ -10,14 +10,15 @@ interface SidebarHeaderProps {
 }
 
 const SidebarHeader: React.FC<SidebarHeaderProps> = ({logo, vector, className, isSidebarOpen, setIsSidebarOpen}) => {
-   const defaultLogo = '/educify.png';
-   const defaultVector = '/vector.png'
+//    const defaultLogo = '/educify.png';
+//    const defaultVector = '/vector.png'
 
     return(
-        <div className={`flex flex-row bg-[#171717] space-between items-center px-2 py-2 ${className}`}>
-            <Image src={logo || defaultLogo}
-             width={40} height={20} alt="educify" className="cursor-pointer"/>
-            <div onClick={setIsSidebarOpen}>{vector || defaultVector}</div>
+        <div className={`flex w-full flex-row bg-[#171717] h-[84px] justify-between items-center px-4 py-4 border-b-2 border-[#9193A5] ${className}`}>
+            <Image src='/educify.png'
+             width={20} height={20} alt="educify" className="cursor-pointer"/>
+            <div onClick={setIsSidebarOpen}>
+                <Image src='/vector.png' width={20} height={20} alt="sidebarIcon"/></div>
         </div>
 
     )
