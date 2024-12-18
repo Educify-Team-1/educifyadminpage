@@ -13,11 +13,7 @@ export default function Admin() {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
-     
-
-      {/* Main content */}
+      {/* Placeholder content */}
       <div className="flex-1 p-6">
         <header className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-semibold">Admin Dashboard</h1>
@@ -39,7 +35,7 @@ export default function Admin() {
           </div>
         </header>
 
-        {/* Admin Content */}
+        {/* Placeholder Admin Content */}
         <section>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white shadow-md rounded-lg p-6">
