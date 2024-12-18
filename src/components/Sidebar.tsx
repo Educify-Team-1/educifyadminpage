@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
       className={`w-64 bg-[#171717] text-white p-4 transition-all duration-300 ease-in-out ${isSidebarOpen ? 'block' : 'hidden'}`}
     >
       <div className="flex justify-between items-center mb-6">
-       <SidebarHeader isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+       <SidebarHeader isSidebarOpen={isSidebarOpen} setIsSidebarOpen={toggleSidebar} />
       </div>
       <ul>
         <li className="mb-4">
