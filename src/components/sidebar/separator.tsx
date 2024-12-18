@@ -4,7 +4,7 @@ interface SeparatorProps {
     className?: string;
 }
 
-const separator: React.FC<SeparatorProps> = ({className}) => {
+const Separator: React.FC<SeparatorProps> = ({className}) => {
   return (
     <div className={`${className} bg-[#9193A5]`}>
         <hr/>
@@ -12,4 +12,4 @@ const separator: React.FC<SeparatorProps> = ({className}) => {
   )
 }
 
-export default separator
+export default Separator
