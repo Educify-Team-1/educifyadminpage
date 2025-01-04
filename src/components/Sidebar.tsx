@@ -206,9 +206,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
             text="Trash"
             onClick={() => handleSectionClick('trash')}
             dropdown={[
-              <div key="1">FAQs</div>,
-              <div key="2">Complaints</div>,
-              <div key="3">Articles</div>,
             ]}
             active={expandedSection === 'trash'}
             isOpen={expandedSection === 'trash'}
