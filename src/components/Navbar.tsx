@@ -1,25 +1,38 @@
-
 import React from 'react';
+import Image from 'next/image';
+import NavbarIcon from '@/components/navbar/navbarIcon';
+import NavbarUserGroup from '@/components/navbar/navbarUserGroup';
 
-const Navbar = () => {
+interface NavbarProps {
+  userImage?: string;
+  userRole?: string;
+  userName: string;
+  toggleSidebar: () => void;
+  toggleRightSidebar?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ userImage, userRole='admin', userName, toggleSidebar,  toggleRightSidebar }) => {
   return (
-    {/* placeholder */}
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex-shrink-0">
-            <span className="text-xl font-bold">Logo</span>
-          </div>    
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <a href="/" className="px-3 py-2 rounded-md text-sm font-medium">Home</a>
-              <a href="/about" className="px-3 py-2 rounded-md text-sm font-medium">About</a>
-              <a href="/contact" className="px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-            </div>
-          </div>
-        </div>
+    <div className="flex flex-row justify-between py-4 items-center">
+      <div onClick={toggleSidebar}>
+        <Image src="/Menu.png" width={20} height={20} className="flex items-center justify-center" alt="hamburger-menu" />
       </div>
-    </nav>
+
+      <div className="flex gap-4">
+        {/* Navbar Icons */}
+        <NavbarIcon 
+          icon="/help.png"
+          number="24"                    
+          onClick={toggleRightSidebar} 
+        />
+        <NavbarIcon 
+          icon="/help.png"
+        />
+
+        {/* User Group */}
+        <NavbarUserGroup userImage={userImage || '/help.png'} userName={userName} userRole={userRole} />
+      </div>
+    </div>
   );
 };
 
