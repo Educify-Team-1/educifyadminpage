@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 interface SidebarComponentProps {
   icon: React.ReactNode;
   text: string;
-  dropdown?: React.ReactNode;
+  dropdown?: React.ReactNode[]; // Directly use an array of React nodes
   onClick: () => void;
   active: boolean; // Track if this component is active
   isOpen: boolean; // Track if dropdown is open (for subitems toggle)
@@ -12,15 +12,13 @@ interface SidebarComponentProps {
 const SidebarComponent: React.FC<SidebarComponentProps> = ({
   icon,
   text,
-  dropdown,
+  dropdown = [],
   onClick,
   active,
   isOpen,
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Track the hovered subitem index
   const [clickedIndex, setClickedIndex] = useState<number | null>(null); // Track the clicked subitem index
-
-  const dropdownItems = React.Children.toArray(dropdown); // Convert dropdown items to array for enumeration
 
   return (
     <div className={`${active || isOpen ? 'border-gradient' : ''}`}>
@@ -40,19 +38,16 @@ const SidebarComponent: React.FC<SidebarComponentProps> = ({
       {/* Submenu / Dropdown (only visible if isOpen is true) */}
       {isOpen && (
         <div className="ml-4 pl-4 border-[#2d2d2d]">
-          <div className="flex flex-col space-y-2">
-            {dropdownItems.map((child, index) => (
+          <div className="flex flex-col gap-2">
+            {/* Directly map dropdown items and apply styles */}
+            {dropdown.map((child, index) => (
               <div
                 key={index}
-                className={`p-2 cursor-pointer ${
-                  (hoveredIndex === index || clickedIndex === index)
-                    ? 'bg-black'
-                    : ''
-                }`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                className={`p-2 cursor-pointer ${hoveredIndex === index || clickedIndex === index ? 'bg-black' : ''}`}
+                onMouseEnter={() => setHoveredIndex(index)} // Track the index on hover
+                onMouseLeave={() => setHoveredIndex(null)} // Reset on mouse leave
                 onClick={() => {
-                  setClickedIndex(index);
+                  setClickedIndex(index); // Track the index on click
                 }}
               >
                 {child}
