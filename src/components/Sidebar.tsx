@@ -5,6 +5,19 @@ import SidebarHeader from '@/components/SidebarHeader';
 import Search from '@/components/sidebar/search';
 import Separator from '@/components/sidebar/separator';
 import './Sidebar.css';
+import { FaHouse } from "react-icons/fa6";
+import { DiGoogleAnalytics } from "react-icons/di";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import { LuMessageCircleMore } from "react-icons/lu";
+import { TbTrashFilled } from "react-icons/tb";
+import { CiCreditCard1 } from "react-icons/ci";
+import { MdContentPaste } from "react-icons/md";
+import { MdLiveHelp } from "react-icons/md";
+import { CiSettings } from "react-icons/ci";
+import { FaUsers } from "react-icons/fa6";
+import { FaTag } from "react-icons/fa";
+import { CiGift } from "react-icons/ci";
+import { RiLogoutBoxLine } from "react-icons/ri";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -48,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Dashboard */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'dashboard' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-tachometer-alt" />}
+            icon={<FaHouse/>}
             text="Dashboard"
             onClick={() => handleSectionClick('dashboard', '/admin/dashboard')} // Pass path to navigate to
             dropdown={[]}
@@ -60,7 +73,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Analytics */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'analytics' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-chart-line" />}
+            icon={<DiGoogleAnalytics/>}
             text="Analytics"
             onClick={() => handleSectionClick('analytics', '/admin/analytics')} // Pass path to navigate to
             dropdown={[
@@ -78,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Notifications */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'notifications' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-bell" />}
+            icon={<IoIosNotificationsOutline/>}
             text="Notifications"
             onClick={() => handleSectionClick('notifications', '/admin/notifications')} // Pass path to navigate to
             dropdown={[]}
@@ -90,7 +103,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* CRM */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'crm' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-users" />}
+            icon={<LuMessageCircleMore />}
             text="CRM"
             onClick={() => handleSectionClick('crm', '/admin/crm')} // Pass path to navigate to
             dropdown={[
@@ -121,7 +134,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Content Management */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'contentManagement' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-edit" />}
+            icon={<MdContentPaste />}
             text="Content Management"
             onClick={() => handleSectionClick('contentManagement', '/admin/contentManagement')} // Pass path to navigate to
             dropdown={[
@@ -137,7 +150,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* User Management */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'userManagement' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-users" />}
+            icon={<FaUsers />}
             text="User Management"
             onClick={() => handleSectionClick('userManagement', '/admin/userManagement')} // Pass path to navigate to
             dropdown={[
@@ -154,7 +167,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Bookings and Payments */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'bookingAndPayment' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-calendar-check" />}
+            icon={<CiCreditCard1 />}
             text="Bookings & Payments"
             onClick={() => handleSectionClick('bookingAndPayment', '/admin/bookings&payments')} // Pass path to navigate to
             dropdown={[
@@ -167,10 +180,28 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
           />
         </li>
 
+        {/* Products and Packages */}
+        <li className={`mb-4 cursor-pointer ${expandedSection === 'productAndPackage' ? 'border-gradient' : ''}`}>
+          <SidebarComponent
+            icon={<FaTag />}
+            text="Products and Packages"
+            onClick={() => handleSectionClick('productAndPackage', '/admin/products&packages')} 
+            dropdown={[
+              <div key="1" className="cursor-pointer" onClick={() => handleSubSectionClick('/admin/products&packages/products')}>Products</div>,
+              <div key="2" className="cursor-pointer" onClick={() => handleSubSectionClick('/admin/products&packages/categories')}>Categories</div>,
+              <div key="3" className="cursor-pointer" onClick={() => handleSubSectionClick('/admin/products&packages/subjects')}>Subjects</div>,
+              <div key="4" className="cursor-pointer" onClick={() => handleSubSectionClick('/admin/products&packages/managePackages')}>Manage Packges</div>,
+            ]}
+            active={expandedSection === 'productAndPackage'}
+            isOpen={expandedSection === 'productAndPackage'}
+            handleSubSectionClick={handleSubSectionClick}
+          />
+        </li>
+
         {/* Promotions */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'promotions' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-bullhorn" />}
+            icon={<CiGift />}
             text="Promotions"
             onClick={() => handleSectionClick('promotions', '/admin/promotions')} // Pass path to navigate to
             dropdown={[]}
@@ -182,7 +213,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Help Desk */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'helpDesk' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-question-circle" />}
+            icon={<MdLiveHelp />}
             text="Help Desk"
             onClick={() => handleSectionClick('helpDesk', '/admin/helpDesk')} // Pass path to navigate to
             dropdown={[
@@ -199,7 +230,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Trash */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'trash' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-trash" />}
+            icon={<TbTrashFilled />}
             text="Trash"
             onClick={() => handleSectionClick('trash', '/admin/trash')} // Pass path to navigate to
             dropdown={[]}
@@ -227,7 +258,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Settings */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'settings' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-cogs" />}
+            icon={<CiSettings />}
             text="Settings"
             onClick={() => handleSectionClick('settings', '/admin/settings')} // Pass path to navigate to
             dropdown={[]}
@@ -239,7 +270,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isSidebarOpen, toggleSidebar }) => {
         {/* Log Out */}
         <li className={`mb-4 cursor-pointer ${expandedSection === 'logOut' ? 'border-gradient' : ''}`}>
           <SidebarComponent
-            icon={<i className="fas fa-sign-out-alt" />}
+            icon={<RiLogoutBoxLine />}
             text="Log Out"
             onClick={() => handleSectionClick('logOut', '/admin/log-out')} // Pass path to navigate to
             dropdown={[]}

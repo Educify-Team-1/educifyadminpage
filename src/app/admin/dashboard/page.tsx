@@ -1,78 +1,54 @@
-"use client"
+"use client";
 import { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { useRouter } from "next/navigation";
 // import Sidebar from '@/components/Sidebar';
+import OverviewWelcome from '@/components/dashboard/OverviewWelcome';
+import OverviewCard from '@/components/dashboard/OverviewCard';
+import OverviewCountry from '@/components/dashboard/OverviewCountry';
+// import UserMap from '@/components/dashboard/UserMap'
 
 export default function Admin() {
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+  
+  const tutorData = [
+    { countryCode: 'US', countryName: 'United States', countryPopulation: 331002651 },
+    { countryCode: 'IN', countryName: 'India', countryPopulation: 1380004385 },
+    { countryCode: 'GB', countryName: 'United Kingdom', countryPopulation: 67886011 },
+  ];
+  
+  const studentData = [
+    { countryCode: 'US', countryName: 'United States', countryPopulation: 331002651 },
+    { countryCode: 'NG', countryName: 'Nigeria', countryPopulation: 206139589 },
+    { countryCode: 'BR', countryName: 'Brazil', countryPopulation: 212559417 },
+  ];
+  
   // Handle sidebar toggle
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="flex h-screen bg-gray-1">
-      {/* Placeholder content */}
-      <div className="flex-1 p-6">
-        <header className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-semibold">Admin Dashboard</h1>
-          <div className="flex items-center gap-4">
-            <Image
-              src="/admin-avatar.png"
-              alt="Admin Avatar"
-              width={40}
-              height={40}
-              className="rounded-full"
-            />
-            <span className="text-lg">Admin</span>
-            <button
-              onClick={() => router.push("/")}
-              className="px-4 py-2 bg-red-600 text-white rounded"
-            >
-              Log Out
-            </button>
+    <div>
+      <section> 
+        <OverviewWelcome username={"Bekwa"}/> 
+      </section>
+      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <OverviewCard role={"Students"} number={642} change={23.40}/>
+        <OverviewCard role={"Tutors"} number={642} change={23.40}/>
+        <OverviewCard role={"Lessons"} number={642} change={23.40}/>
+        <OverviewCard role={"Courses"} number={642} change={23.40}/>
+      </section>
+      <section className="flex flex-col md:flex-row justify-between mt-4">
+        {/* <div className="flex-1"><User Map/></div> */}
+        <div className="flex-1 flex flex-col md:flex-row justify-between">
+          <div className="flex-1 mr-2">
+            <OverviewCountry role={"Tutors"} data={tutorData} />
           </div>
-        </header>
-
-        {/* Placeholder Admin Content */}
-        <section>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">User Management</h3>
-              <p className="text-gray-600">Manage your users here.</p>
-              <button
-                onClick={() => router.push("/admin/users")}
-                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
-              >
-                View Users
-              </button>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">Reports</h3>
-              <p className="text-gray-600">Generate and view reports.</p>
-              <button
-                onClick={() => router.push("/admin/reports")}
-                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
-              >
-                View Reports
-              </button>
-            </div>
-
-            <div className="bg-white shadow-md rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">Settings</h3>
-              <p className="text-gray-600">Configure your admin panel.</p>
-              <button
-                onClick={() => router.push("/admin/settings")}
-                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
-              >
-                Go to Settings
-              </button>
-            </div>
+          <div className="flex-1 ml-2">
+            <OverviewCountry role={"Students"} data={studentData} />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
