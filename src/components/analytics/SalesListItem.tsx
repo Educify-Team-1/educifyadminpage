@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-
-type Status = 'Failed' | 'Pending' | 'Paid';
+import { Status } from '@/types/status';
 
 interface SalesUserGroupProps {
   username: string;

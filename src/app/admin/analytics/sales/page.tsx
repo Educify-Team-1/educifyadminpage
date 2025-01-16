@@ -4,6 +4,7 @@ import MarketingCard from '@/components/analytics/MarketingCard';
 import { studentData } from '@/data/constant.ts'
 import OverviewCountry from '@/components/dashboard/OverviewCountry';
 import SalesCharts from '@/components/analyics/SalesCharts';
+import SalesComponents from '@/components/analytics/SalesComponents';
 
 const page = () => {
   return (
@@ -36,7 +37,7 @@ const page = () => {
           <h4 className="text-bold">Recent Sales</h4>
           <p className=""><span className="text-blue-400 cursor-pointer">1-10</span> of 255 </p>
         </div>
-
+        <SalesComponents />
       </section>
     </div>
   )
