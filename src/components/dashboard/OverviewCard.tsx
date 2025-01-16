@@ -31,6 +31,9 @@ const OverviewCard: React.FC<OverviewCardProps> = ({role, number=542, change=25.
             <p> {change} <span> {icon} </span> </p>
         </div>
         </div>
+        <div>
+            {/* display vector as background */}
+        </div>
 
     </div>
   )
