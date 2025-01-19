@@ -16,4 +16,4 @@ const ClassCard: React.FC<ClassCardProps> = ({className, title, value, liveValue
   )
 }
 
-export default ClassCard;
+export default ClassCard;  

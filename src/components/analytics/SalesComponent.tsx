@@ -18,7 +18,7 @@ const SalesComponent = () => {
         date="Date"
         status="Status"
       />
-      {salesData.map((item, index) => (
+      {salesData && salesData.map((item, index) => (
         <SalesListItem
           key={item.id}
           id={item.id}

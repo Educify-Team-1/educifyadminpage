@@ -2,6 +2,8 @@ import React from 'react'
 import LiveClassesCard from '@/components/analytics/LiveClassesCard';
 import LiveClassCard from '@/components/analytics/LiveClassCard';
 import ClassCard from '@/components/analytics/ClassCard';
+// import LiveClassesListComponent from '@/components/analytics/LiveClassesListComponent';
+// import DetailsCard from '@/components/analytics/DetailsCard';
 
 const page = () => {
   return (

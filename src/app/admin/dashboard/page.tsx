@@ -32,7 +32,7 @@ export default function Admin() {
       <section> 
         <OverviewWelcome username={"Bekwa"}/> 
       </section>
-      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-4">
         <OverviewCard role={"Students"} number={642} change={23.40}/>
         <OverviewCard role={"Tutors"} number={642} change={23.40}/>
         <OverviewCard role={"Lessons"} number={642} change={23.40}/>

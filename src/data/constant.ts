@@ -95,3 +95,95 @@ export const salesData: {
     status: 'Pending',
   },
 ];
+
+export const classData: {
+     id: number;
+    students: string;
+    lessons: {type: string, role: string};
+    teacher: {name: string, method: string};
+    status: string;
+    dateCreated: string;
+    duration: string;
+    details?: string;
+}[] = [
+  {
+  id: 1,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 2,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 3,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 4,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 5,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 6,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 7,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+  {
+  id: 8,
+  students: "Adenekan Akeem",
+  lessons: {type: 'Private Lessons', role: 'Intermediate Piano Lessons',},
+  teacher: {name: 'Bekwa Undie', method: 'Virtual'},
+  status: 'Live',
+  dateCreated: '18/12/2024',
+  duration: 'per Hour',
+  details: 'Details',
+},
+]

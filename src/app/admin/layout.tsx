@@ -34,10 +34,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {isRightSidebarOpen && (
         <div className="fixed top-0 right-0 w-64 h-full bg-gray-800 text-white z-40">
           <div className="p-4">Right sidebar contents</div>
-<<<<<<< HEAD
           <p onClick={toggleRightSidebar} className='cursor-pointer'> X </p>
-=======
->>>>>>> 750c08f54202bdc0335410dfdbb6e2311a085699
         </div>
       )}
 
