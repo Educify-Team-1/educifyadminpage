@@ -1,10 +1,10 @@
 import React from 'react'
 import MarketingCard from '@/components/analytics/MarketingCard';
 // import UserMap from '@/components/dashboard/UserMap';
-import { studentData } from '@/data/constant.ts'
+import { studentData } from '@/data/constant'
 import OverviewCountry from '@/components/dashboard/OverviewCountry';
-import SalesCharts from '@/components/analyics/SalesCharts';
-import SalesComponents from '@/components/analytics/SalesComponents';
+import SalesCharts from '@/components/analytics/SalesCharts';
+import SalesComponents from '@/components/analytics/SalesComponent';
 
 const page = () => {
   return (

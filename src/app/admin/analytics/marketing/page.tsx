@@ -2,7 +2,7 @@ import React from 'react';
 // import UserMap from '@/components/dashboard/UserMap';
 import OverviewCountry from '@/components/dashboard/OverviewCountry';
 import DashboardSeparator from '@/components/analytics/DashboardSeparator';
-import { tutorData, studentData } from '@/data/constants';
+import { tutorData, studentData } from '@/data/constant';
 import MarketingCard from '@/components/analytics/MarketingCard';
 import PieChart from '@/components/analytics/PieChart';
 
