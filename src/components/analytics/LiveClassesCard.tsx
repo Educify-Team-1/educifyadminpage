@@ -9,7 +9,7 @@ interface LiveClassesCardProps {
 
 const LiveClassesCard: React.FC<LiveClassesCardProps> = ({number, title, className}) => {
   return (
-    <div className={`flex flex-column gap-2 py-2 px-2 ${className}`}>
+    <div className={`flex flex-col gap-2 py-2 px-2 ${className}`}>
         <div>
             <Image src='vector8.png' width={40} height={40} alt="class-vector" /> 
         </div>

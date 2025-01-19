@@ -14,13 +14,13 @@ const SocialCard: React.FC<SocialCardProps> = ({icon, className, mode, impressio
         <div>
             {icon}
         </div>
-        <div className="flex flex-column items-center gap-2">
-            <div className="flex flex-column justify-evenly">
+        <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col justify-evenly">
             <p>{mode}</p>
             <p> 235k </p>
             </div>
 
-            <div className="flex flex-column justify-evenly">
+            <div className="flex flex-col justify-evenly">
                 <p> {impressions} </p>
                 <p> 235k </p>
             </div>

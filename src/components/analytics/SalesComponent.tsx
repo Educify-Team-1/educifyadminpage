@@ -8,7 +8,7 @@ import { salesData } from '@/data/constant';
 const SalesComponent = () => {
   
   return (
-    <div className="flex flex-column">
+    <div className="flex flex-col">
       <SalesListHeader
         id="ID"
         username="Username"

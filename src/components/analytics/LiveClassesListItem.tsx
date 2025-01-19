@@ -18,11 +18,11 @@ const LiveClassesListItem: React.FC<LiveClassesListItemProps> = ({id, students, 
     <div className={`flex flex-row justifyy-between py-2 px-2 items-center ${className}`}>
         <p>{id}</p>
         <p>{students}</p>
-        <div className="flex flex-column justify-around py-2 px-2">
+        <div className="flex flex-col justify-around py-2 px-2">
             <p className="text-bold text-small nowrap-whitespace">{lessons.type}</p>
             <p className="text-small"> {lessons.role} </p>
         </div>
-        <div className="flex flex-column justify-around py-2 px-2">
+        <div className="flex flex-col justify-around py-2 px-2">
             <p className="text-bold text-small nowrap-whitespace">{teacher.name}</p>
             <p className="text-small"> {teacher.method} </p>
         </div>

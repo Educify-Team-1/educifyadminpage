@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 
 interface MarketingCardProps {
     number: string;
@@ -8,9 +9,10 @@ interface MarketingCardProps {
 
 const MarketingCard: React.FC<MarketingCardProps> = ({number, title, icon}) => {
   return (
-    <div className="flex flex-column px-2 py-2 justify-around items-center" >
+    <div className="flex flex-col px-2 py-2 justify-around items-center" >
         <div>
         {/* vector as background */}
+        <Image src="/Vector 8.png" alt="vector background" />
         </div>
         <div className="flex flex-row rounded-[12px]">
             <div>

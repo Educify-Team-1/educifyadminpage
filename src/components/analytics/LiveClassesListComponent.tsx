@@ -6,8 +6,8 @@ import LiveClassesListItem from './LiveClassesListItem';
 
 const LiveClassesListComponent = () => {
   return (
-    <div className="flex flex-column">
-        <LiveClassesListHeader students={"Studens"} lessons={"Lessons"} teacher={"Teacher"} status={"Status"} dateCreated={"Date Created"} duration={"Duration"} details={"Details"}  />
+    <div className="flex flex-col">
+        <LiveClassesListHeader students={"Students"} lessons={"Lessons"} teacher={"Teacher"} status={"Status"} dateCreated={"Date Created"} duration={"Duration"} details={"Details"}  />
         {classData && classData.map((item, index) => (
             <LiveClassesListItem 
             key={item.id}

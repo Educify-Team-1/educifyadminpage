@@ -6,7 +6,7 @@ const SocialBarchartComponent = () => {
   return (
     <div className="border-[1px] py-2 px-2">
         <div className="flex flex-row justify-between py-1 px-1">
-            <div className="flex flex-column gap-2">
+            <div className="flex flex-col gap-2">
                 <p>Impression</p>
                 <div className="flex flex-row">
                     <h3 className="text-bold">244k</h3>

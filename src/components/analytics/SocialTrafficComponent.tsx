@@ -5,7 +5,7 @@ const SocialTrafficComponent = () => {
     <div className="py-2 px-2">
         <div className='flex flex-row justify-between'>
             <h3> Social Traffic </h3>
-            <button> 
+            <button className="flex justify-center items-center"> 
                 {/* book icon here */}
                 Jan 2024 - Jun 2024
             </button>
