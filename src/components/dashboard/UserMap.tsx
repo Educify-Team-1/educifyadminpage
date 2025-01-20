@@ -34,8 +34,13 @@ interface Feature {
 
 const UserMap: React.FC = () => {
   const [data, setData] = useState<UserData[]>(userData);
-  const [geoJsonData, setGeoJsonData] = useState<any>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [geoJsonData, setGeoJsonData] = useState<any>(null); // To store fetched GeoJSON data
+  const [error, setError] = useState<string | null>(null); // State to hold error messages
+  const [isClient, setIsClient] = useState(false); // State to check if the component is mounted on the client
+
+  useEffect(() => {
+    setIsClient(true); // Set to true when the component mounts
+  }, []);
 
   useEffect(() => {
     const fetchGeoJson = async () => {
@@ -52,8 +57,10 @@ const UserMap: React.FC = () => {
       }
     };
 
-    fetchGeoJson();
-  }, []);
+    if (isClient) {
+      fetchGeoJson(); // Fetch data only if on the client
+    }
+  }, [isClient]);
 
   const getFillColor = (percentage: number) => {
     if (percentage <= 5) return '#f0f0f0';
@@ -63,7 +70,7 @@ const UserMap: React.FC = () => {
     return '#c62828';
   };
 
-  const onEachCountry = (country: Feature, layer: L.GeoJSON) => { // Change L.Layer to L.GeoJSON
+  const onEachCountry = (country: Feature, layer: L.GeoJSON) => {
     const countryData = data.find((item) => item.country === country.properties.ISO_A3);
     const percentage = countryData ? countryData.percentage : 0;
     const fillColor = getFillColor(percentage);
@@ -79,11 +86,11 @@ const UserMap: React.FC = () => {
   };
 
   if (error) {
-    return <div>Error: {error}</div>; 
+    return <div>Error: {error}</div>; // Display error message if there is an error
   }
 
-  if (!geoJsonData) {
-    return <div>Loading map...</div>;
+  if (!geoJsonData || !isClient) {
+    return <div>Loading map...</div>; // Loading state while fetching data or if not on client
   }
 
   return (
@@ -115,7 +122,7 @@ const UserMap: React.FC = () => {
         <h3>Percentage Breakdown by Country:</h3>
         {data.map((country) => (
           <div key={country.country}>
-            <span>{country.country}</span> - {country.percentage}%
+            {country.country}: {country.percentage}%
           </div>
         ))}
       </div>
