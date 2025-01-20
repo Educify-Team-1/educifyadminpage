@@ -11,16 +11,16 @@ const MarketingCard: React.FC<MarketingCardProps> = ({number, title, icon}) => {
   return (
     <div className="flex flex-col px-2 py-2 justify-around items-center" >
         <div>
-        {/* vector as background */}
-        <Image src="/Vector 8.png" alt="vector background" />
+        {/* vector as background, get original width and height from figma file */}
+        <Image src="/Vector 8.png" alt="vector background" width={300} height={40} />
         </div>
-        <div className="flex flex-row rounded-[12px]">
-            <div>
+        <div className="flex flex-row justify-between gap-4 rounded-[12px]">
+            <div className="flex flex-col">
                 <h4>{number}</h4>
                 <p>{title} </p>
             </div>
-            <div>
-                {icon}
+            <div className="flex justify-center items-center">
+                Icon{icon}
             </div>
         </div>
     </div>
