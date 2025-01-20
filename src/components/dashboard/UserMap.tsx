@@ -34,13 +34,22 @@ interface Feature {
 
 const UserMap: React.FC = () => {
   const [data, setData] = useState<UserData[]>(userData);
-  const [geoJsonData, setGeoJsonData] = useState<any>(null); // To store fetched GeoJSON data
+  const [geoJsonData, setGeoJsonData] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchGeoJson = async () => {
-      const response = await fetch(geoUrl);
-      const geoJson = await response.json();
-      setGeoJsonData(geoJson);
+      try {
+        const response = await fetch(geoUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const geoJson = await response.json();
+        setGeoJsonData(geoJson);
+      } catch (err: any) {
+        setError(err.message); // Set error message if fetch fails
+        console.error("Error fetching GeoJSON data:", err);
+      }
     };
 
     fetchGeoJson();
@@ -68,6 +77,10 @@ const UserMap: React.FC = () => {
 
     layer.bindPopup(`<strong>${country.properties.ISO_A3}</strong>: ${percentage}%`);
   };
+
+  if (error) {
+    return <div>Error: {error}</div>; 
+  }
 
   if (!geoJsonData) {
     return <div>Loading map...</div>;
