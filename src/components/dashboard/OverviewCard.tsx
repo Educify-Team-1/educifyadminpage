@@ -23,24 +23,24 @@ const OverviewCard: React.FC<OverviewCardProps> = ({
   bgColor = 'bg-white',
 }) => {
   return (
-    <div className={`rounded-[12px] h-[236px] ${bgColor} ${className}`}>
-      <div className="flex flex-row justify-between px-2 py-2">
-        <div className="flex flex-col gap-4">
+    <div className={`rounded-[12px] flex flex-col h-[236px] ${bgColor} ${className}`}>
+      <div className="flex-1 flex flex-row justify-between gap-4 items-center px-2 py-2">
+        <div className="flex flex-col gap-8 w-[200px]">
           <ImageMapper data={data} />
-          <h3>{role}</h3>
+          <h3 className="underline text-lg pl-2">{role}</h3>
         </div>
-        <div className="flex flex-col gap-4">
-          <h4>{number}</h4>
-          <p>
-            {change} <span>{icon}</span>
+        <div className="flex flex-col text-white">
+          <h4 className="text-[24px]">{number}+</h4>
+          <p className="text-sm flex items-center">
+            +{change}% <span>{icon}</span>
           </p>
         </div>
       </div>
-      <div>
+      <div className="flex-1 flex items-center justify-center">
         <Image
           src="/Vector 8.png"
           alt="vector background"
-          width={391}
+          width={302}
           height={40}
         />
       </div>
